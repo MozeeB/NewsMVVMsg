@@ -8,14 +8,15 @@
         android:id="@+id/thumbnailNewsFragmentIV"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher" />
+        android:background="#dddd" />
 
     <TextView
         android:id="@+id/judulNewsFragmentTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ini Judul"
         android:padding="10dp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="#dddd"
         android:layout_gravity="center"
         android:textSize="20sp"/>
 

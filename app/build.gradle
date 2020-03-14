@@ -67,4 +67,8 @@ dependencies {
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-scope:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
+
+    //ui
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
 }

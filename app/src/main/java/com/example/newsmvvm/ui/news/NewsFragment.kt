@@ -38,6 +38,18 @@ class NewsFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        shimmerFrameLayout.startShimmer()
+
+    }
+
+    override fun onPause() {
+        shimmerFrameLayout.stopShimmer()
+        super.onPause()
+
+    }
+
     private fun setRv(){
         val linearLayout = LinearLayoutManager(context,LinearLayoutManager.VERTICAL, false)
         rvNews.apply {
@@ -49,16 +61,20 @@ class NewsFragment : Fragment() {
     private val observable = Observer<NewsState>{  newState ->
         when(newState){
             is NewsDataLoaded ->{
+                shimmerFrameLayout.stopShimmer()
+                shimmerFrameLayout.visibility = View.GONE
+                rvNews.visibility = View.VISIBLE
+
                 newsAdapter.clear()
                 newState.newsDomain.map {
                     newsAdapter.add(NewsItemView(it))
                 }
             }
             is NoDataLoaded ->{
-                
+                shimmerFrameLayout.visibility = View.GONE
             }
             is ErrorState ->{
-
+                shimmerFrameLayout.visibility = View.GONE
             }
         }
     }
